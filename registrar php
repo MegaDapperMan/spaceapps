@@ -1,0 +1,28 @@
+<?php
+include("con_db.php");
+if(isset($_POST['register'])) {
+	if(strlen($_POST['name']) >= 1 &&)
+  (strlen($_POST['email']) >= 1 &&)
+  (strlen($_POST['password']) >= 1 )
+  {
+	$name = trim($_POST['name']);
+	$email = trim($_POST['email']);
+	$password = trim($_POST['password']);
+	$consulta = "INSERT INTO datos(nombre, email, password) VALUES ('$name','$email','$password')";
+	$resultado = mysqli_query($conex,$consulta);
+	if ($resultado){
+		?>
+		<h3 class="ok"> Congratulations, you are in!</h3>
+		<?php
+	}else{
+	?>
+		<h3 class="bad"> Oh no, something were wrong!</h3>
+		<?php	
+	}else{
+		?>
+		<h3 class="bad"> Please, fill the data requiered!</h3>
+		<?php	
+	}
+  }
+}
+?>
